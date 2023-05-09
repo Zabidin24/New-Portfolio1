@@ -15,7 +15,7 @@ def load_exps_from_db():
     
 @app.route("/")
 def hello_world():
-  exper=load_exps_from_db()
+  exper=load_exps_from_db() 
   return render_template('home.html',
                           exp=exper,
                           page_name='Portfolio')
