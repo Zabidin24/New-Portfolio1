@@ -1,37 +1,23 @@
 from flask import Flask, render_template ,jsonify
+from database import engine
+from sqlalchemy import text
 
 
 app=Flask(__name__)
-Expertise=[
-  {
-    'id':1,
-    'title':'Data Analyst',
-    'language':'Python',
-    'Packages':'Matplotlib, Pandas'
-   },
-  {
-    'id':2,
-    'title':'Machine Learning',
-    'language':'Python',
-    'Packages':'Scikit-learn, Pandas'
-   },
-  {
-    'id':3,
-    'title':'Deep Learning',
-    'language':'Python',
-    'Packages':'Pytorch, Pandas'
-   },
-{
-    'id':4,
-    'title':'Dashboard Designing',
-    'language':'DAX',
-    'Packages':'Powerbi'
-   }
-]
+
+def load_exps_from_db():
+ with engine.connect() as conn:
+    result=conn.execute(text("select * from exp" ))
+    result_dicts=[]
+    for row in result.all():
+     result_dicts.append(row._asdict())
+    return result_dicts
+    
 @app.route("/")
 def hello_world():
+  exper=load_exps_from_db()
   return render_template('home.html',
-                          exp=Expertise,
+                          exp=exper,
                           page_name='Portfolio')
 @app.route("/api/expertise")
 def list_expertise():
