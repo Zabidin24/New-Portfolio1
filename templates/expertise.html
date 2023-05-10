@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>{{exp.title}} Portfolio </title>
+  {% include 'bootstrap.html'%}
 <body>
-  <div>
+  {% include 'nav.html'%}
+  {% include 'banner.html'%}
   <h3>Title</h3>
   <p> {{exp.title}}</p>
-  <img class="img-fluid" id="banner" 
-src="/static/mlpic.jpg"  >
+ 
     
   <h3>Language</h3>
   <p> {{exp.languages}}</p>
@@ -17,7 +18,7 @@ src="/static/mlpic.jpg"  >
   <p> {{exp.Details}}</p>
   <h3>Projects</h3>
   <p> {{exp.Projects}}</p>
-    </div>
+  {% include 'footer.html' %}
 </body>
 </head>
 </html>
