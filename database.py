@@ -1,7 +1,15 @@
 from sqlalchemy import create_engine,text
-conn_string="mysql+pymysql://epvl7l5gdol390wgcz20:pscale_pw_bHwNum3vozS0rcDS6gvZT6oCg2BU1Etoe4rlt0EwKjL@aws.connect.psdb.cloud/portfolio"
+import os
+conn_string=os.environ['db_connection_string']
 engine=create_engine(conn_string
                      ,connect_args={
                        "ssl":{
     "ssl_ca": "/etc/ssl/cert.pem"
   }})
+def load_exps_from_db():
+ with engine.connect() as conn:
+    result=conn.execute(text("select * from exp" ))
+    result_dicts=[]
+    for row in result.all():
+     result_dicts.append(row._asdict())
+    return result_dicts
