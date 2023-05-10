@@ -1,5 +1,5 @@
 from flask import Flask, render_template ,jsonify
-from database import load_exps_from_db
+from database import load_exps_from_db, load_exp_from_db
 
 
 app=Flask(__name__)
@@ -16,5 +16,10 @@ def hello_world():
 def list_expertise():
   exper=load_exps_from_db() 
   return jsonify(exper)
+@app.route("/exp/<id>")
+def show_jobs(id):
+  exp=load_exp_from_db(id)
+  return jsonify(exp)
+  
 if __name__ =="__main__":
   app.run(host='0.0.0.0',debug=True)
