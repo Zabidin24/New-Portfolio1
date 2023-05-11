@@ -2,29 +2,37 @@
 <html>
 <head>
 <title> Enquiry Received</title>
+  {%include 'bootstrap.html' %}
 </head>
 <body>
-<h4> Full Name  </h4>
-  <div>
-    {{application['Full name']}}
+  {% include 'nav.html'%}
+  {% include 'banner.html'%}
+  <div class="container">
+    <h1 class=" text-center mt-2 mb-4"> 
+      Expertise
+      <p> Your enquiry for {{exp['title']}} has been registered</p>
+<b> Full Name </b>
+  <div class="mb-2">
+    {{application['Full Name']}}
   </div>
-<h4> Email </h4>
-  <div>
-    {{application['email']}}
+<b> Email </b>
+  <div class="mb-2">
+    {{application['Email']}}
   </div>
-<h4> Linkedin Url</h4>
-  <div>
+<b> Linkedin Url</b>
+  <div class="mb-2">
     {{application['Linkedin Url']}}
   </div>
-  <h4> Requirements </h4>
-  <div>
+  <b> Requirements </b>
+  <div class="mb-2">
     {{application['Requirements']}}
   </div>
-
-  <h4> Comments </h4>
-  <div>
+<b> Comments </b>
+  <div class="mb-2">
     {{application['Comments']}}
+  </div >
   </div>
+   {% include 'footer.html' %}
 </body>
 
   

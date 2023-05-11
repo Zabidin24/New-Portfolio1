@@ -1,4 +1,4 @@
-from flask import Flask, render_template ,jsonify, request
+from flask import Flask, render_template_string ,jsonify, request, render_template
 from database import load_exps_from_db, load_exp_from_db
 
 
@@ -27,8 +27,8 @@ def show_jobs(id):
 @app.route("/exp/<id>/enquire", methods=["get"])
 def enquire_info(id):
   data=request.args
-  return render_template('Enquiry_sub.html', application=data)
-  
+  exp=load_exp_from_db(id)
+  return render_template('Enquiry_sub.html', application=data,exp=exp)
   
 if __name__ =="__main__":
   app.run(host='0.0.0.0',debug=True)
