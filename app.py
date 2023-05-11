@@ -1,4 +1,4 @@
-from flask import Flask, render_template ,jsonify
+from flask import Flask, render_template ,jsonify, request
 from database import load_exps_from_db, load_exp_from_db
 
 
@@ -22,5 +22,13 @@ def show_jobs(id):
   if not exp:
     return "Not found 404"
   return render_template('expertise.html',exp=exp)
+
+
+@app.route("/exp/<id>/enquire", methods=['post'])
+def enquire_info(id):
+  data=request.form
+  return jsonify(data)
+  
+  
 if __name__ =="__main__":
   app.run(host='0.0.0.0',debug=True)
