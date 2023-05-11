@@ -6,18 +6,33 @@
 <body>
   {% include 'nav.html'%}
   {% include 'banner.html'%}
-  <h3>Title</h3>
-  <p> {{exp.title}}</p>
- 
+  <div class="container">
+    <h1 class=" text-center mt-2 mb-4"> 
+      Expertise
+    </h1>
     
-  <h3>Language</h3>
-  <p> {{exp.languages}}</p>
-  <h3>Packages</h3>
+  </div>
+  <h3>{{exp.title}}</h3>
+  <p class="lead ">{{exp.languages}} </p>
+  <h4> Packages</h4>
   <p> {{exp.Packages}}</p>
-  <h3>Details</h3>
-  <p> {{exp.Details}}</p>
-  <h3>Projects</h3>
-  <p> {{exp.Projects}}</p>
+  <h4> Details </h4>
+  <ul>
+    {% for e in exp.Details.split("\n")  %}
+    <li>
+      {{e}}
+    </li>
+    {% endfor %}
+  </ul>
+  <h4> Projects</h4>
+<ol>
+    {% for p in exp.Projects.split("\n")  %}
+    <li>
+      {{p}}
+    </li>
+    {% endfor %}
+  </ol> 
+  
   {% include 'footer.html' %}
 </body>
 </head>
