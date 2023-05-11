@@ -24,10 +24,10 @@ def show_jobs(id):
   return render_template('expertise.html',exp=exp)
 
 
-@app.route("/exp/<id>/enquire", methods=['post'])
+@app.route("/exp/<id>/enquire", methods=["get"])
 def enquire_info(id):
-  data=request.form
-  return jsonify(data)
+  data=request.args
+  return render_template('Enquiry_sub.html', application=data)
   
   
 if __name__ =="__main__":

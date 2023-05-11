@@ -1,5 +1,5 @@
 <h4> Contact me</h4>
-<form action="/exp/{{exp['id']}}/enquire" method="post">
+<form action="/exp/{{exp['id']}}/enquire" method="get">
   <label>Full name</label><br>
   <input type="text" name="full name" placeholder= "zain ul abidin"> 
    <br>
@@ -8,7 +8,17 @@
    <br>
   <label>Linkedin Url</label> <br>
   <input type="text" name="Linkedin" placeholder= "https://www.linkedin.com/in/bruce"> 
- <div class="mt-2">
+  <div class="mb-2">
+    <label> Requirements </label><br>
+    <textarea name="Requirements"> </textarea>
+  </div>
+<div class="mb-2">
+    <label> Comments </label><br>
+    <textarea name="Comments"> </textarea>
+  </div>
+
+  
+ <div class="mb-2">
   <input type="submit" >
    </div>
 </form>
