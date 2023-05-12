@@ -1,5 +1,5 @@
-from flask import Flask, render_template_string ,jsonify, request, render_template
-from database import load_exps_from_db, load_exp_from_db
+from flask import Flask,jsonify, request, render_template
+from database import load_exps_from_db, load_exp_from_db, add_enquiry_to_db
 
 
 app=Flask(__name__)
@@ -28,6 +28,7 @@ def show_jobs(id):
 def enquire_info(id):
   data=request.args
   exp=load_exp_from_db(id)
+  add_enquiry_to_db(id,data)
   return render_template('Enquiry_sub.html', application=data,exp=exp)
   
 if __name__ =="__main__":
