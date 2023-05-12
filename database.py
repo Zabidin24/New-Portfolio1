@@ -24,12 +24,12 @@ def load_exp_from_db(id):
       return rows[0]._asdict()
 def add_enquiry_to_db(ex_id,data):
   with engine.connect() as conn:
-      query=text("insert into applications(ex_id,FullName,Email,linkedinUrl,Requirements,Comments) VALUES(:ex_id,:FullName,:Email,:linkedinUrl,:Requirements,:Comments)")
+      query=text("insert into applications(ex_id,FullName,Email,LinkedinUrl,Requirements,Comments) VALUES(:ex_id,:FullName,:Email,:LinkedinUrl,:Requirements,:Comments)")
       conn.execute(query, {
             'ex_id': ex_id,
             'FullName': data['FullName'],
             'Email': data['Email'],
-            'linkedinUrl': data['linkedinUrl'],
+            'LinkedinUrl': data['LinkedinUrl'],
             'Requirements': data['Requirements'],
             'Comments': data['Comments']
         })
