@@ -1,6 +1,9 @@
 from sqlalchemy import create_engine,text
+from sqlalchemy.engine.url import make_url
 import os
 conn_string=os.environ['db_conn_string']
+url_string=conn_string
+url=make_url(url_string)
 engine=create_engine(conn_string
                      ,connect_args={
                        "ssl":{
