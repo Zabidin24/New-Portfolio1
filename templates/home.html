@@ -13,7 +13,15 @@
    <h1 class="text-center mt-2 mb-4">  Portfolio </h1>
   {% include 'banner.html'%}
  <h2 class="text-center mt-2 mb-4"> Inception</h2>
-  <p class="lead"> I am a data science enthusiast. I have been playing with data for almost a year. I am a goal-oriented and creative individual with flexible working abilities.</p>
+    <div class="row">
+      <div class="col-9"> 
+      
+  <p class="lead mt-2 mb-4"> I am a data science enthusiast. I am attached with this domain for almost a year. I am a goal-oriented and creative individual with flexible working abilities.</p>
+      </div>
+      <div class="col-3">
+    <img src="/static/Profile_pic.jpg" style="height:300px;">
+      </div>
+    </div>
   <h2 class="text-center mt-2 mb-4"> Expertise  </h2>
     <div> 
     {% for ex in exp %}
